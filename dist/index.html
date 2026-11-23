@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <!-- =====================================================
+       1. CONFIGURACIÓN GENERAL
+       ===================================================== -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="Explora nuestra colección de relojes personalizados aftermarket y centenarios de oro. Encuentra una pieza a tu manera.">
+  <title>Pendiente · Relojes & piezas de oro</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Aplica el tema guardado o, si no existe, el del dispositivo. -->
+  <script>
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem('pendiente-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch (e) {}
+  </script>
+
+  <!-- styles.css: diseño, colores, tamaños y adaptación a celulares.
+       data.js: nombre, teléfono, productos, precios, fotos y descripciones.
+       app.js: filtros, temas, fichas de productos y contacto.
+       Mantén data.js antes de app.js. -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <!-- Acceso directo al catálogo para quienes navegan con teclado. -->
+  <a class="skip-link" href="#coleccion">Ir al catálogo</a>
+
+  <!-- =====================================================
+       2. ENCABEZADO: MARCA, MENÚ Y BOTONES
+       ===================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- El nombre y subtítulo se actualizan desde STORE en data.js. -->
+      <a class="brand" href="#inicio" aria-label="Pendiente, inicio">
+        <span class="brand-name" data-store-name>Pendiente<span class="brand-dot">.</span></span>
+        <span class="brand-tagline" data-store-tagline>RELOJES & PIEZAS DE ORO</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#coleccion">Colección</a>
+        <a href="#centenarios">Centenarios</a>
+        <a href="#nosotros">Nuestra esencia</a>
+        <a href="#nosotros">Dudas</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Interruptor de modo claro y oscuro. -->
+        <button class="theme-toggle icon-button" id="theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false">
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14A8.5 8.5 0 0 1 10 3.8 8.6 8.6 0 1 0 20.2 14Z"/></svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.8"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+        </button>
+
+        <!-- contact-trigger abre la ventana de contacto. -->
+        <button class="button button-small button-outline contact-trigger" type="button">Hablemos <span aria-hidden="true">↗</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- ===================================================
+         3. PRESENTACIÓN PRINCIPAL / PORTADA
+         =================================================== -->
+    <section class="hero container" aria-labelledby="hero-title">
+
+      <!-- Textos de presentación: puedes editarlos directamente aquí. -->
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="tiny-line"></span> UN ESTILO. TU TIEMPO.</p>
+        <h1 id="hero-title">El tiempo,<br><em>a tu manera.</em></h1>
+        <p class="hero-description">Hay piezas que dan la hora.<br>Y otras que dicen quién eres.</p>
+        <p class="hero-note">Descubre nuestra selección de relojes personalizados aftermarket y piezas de oro.</p>
+        <a class="button button-primary" href="#coleccion">Explorar colección <span aria-hidden="true">↗</span></a>
+        <div class="hero-bottom"><span>PERSONALIDAD EN CADA DETALLE</span><span class="scroll-cue" aria-hidden="true">↓</span></div>
+      </div>
+
+      <!-- La imagen y el nombre se toman del producto con featured: true
+           en data.js. Los valores de aquí son los iniciales del HTML. -->
+      <div class="hero-visual">
+        <div class="hero-arch">
+          <span class="hero-edition">LA COLECCIÓN / SANTOS</span>
+          <div class="hero-halo"></div>
+          <img id="hero-image" src="assets/watch-black.svg" alt="Ilustración provisional de un reloj totalmente negro" width="500" height="650" fetchpriority="high">
+          <span class="hero-side-note">UNA EXPRESIÓN PROPIA</span>
+          <span class="image-caption">VISTA ILUSTRATIVA</span>
+        </div>
+
+        <button class="hero-product" id="hero-product" type="button">
+          <span><small>EL DETALLE LO CAMBIA TODO</small><strong id="hero-product-name">Santos 09 · Total negro</strong></span>
+          <span class="round-arrow" aria-hidden="true">↗</span>
+        </button>
+
+        <span class="hero-index">01 <span>/</span> 09</span>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         4. FRANJA DECORATIVA
+         =================================================== -->
+    <div class="collection-ribbon" aria-label="Nuestra propuesta">
+      <div class="container ribbon-inner">
+        <span>DISEÑO CON CARÁCTER</span>
+        <span class="ribbon-star" aria-hidden="true">✧</span>
+        <span>PERSONALIZACIÓN AFTERMARKET</span>
+        <span class="ribbon-star" aria-hidden="true">✧</span>
+        <span>PIEZAS A TU MANERA</span>
+      </div>
+    </div>
+
+    <!-- ===================================================
+         5. CATÁLOGO: TÍTULO Y CATEGORÍAS
+         =================================================== -->
+    <section class="catalog container section-space" id="coleccion" aria-labelledby="catalog-title">
+      <div class="section-heading">
+        <div>
+          <!-- <p class="eyebrow">ENCUENTRA TU PRÓXIMA PIEZA</p>-->
+          <h2 id="catalog-title">Personalizaciones que manejamos<span class="accent-dot">.</span></h2>
+        </div>
+        <p class="section-description">Distintos colores. Una misma actitud.<br>Elige el detalle que va contigo.</p>
+      </div>
+
+      <!-- data-category corresponde a category en los productos.
+           app.js calcula los contadores automáticamente. -->
+      <div class="catalog-tabs" role="group" aria-label="Categorías">
+        <button class="tab active" data-category="relojes" type="button" aria-pressed="true">Relojes <span id="watch-count">09</span></button>
+        <button class="tab" data-category="centenarios" type="button" aria-pressed="false">Centenarios <span id="coin-count">01</span></button>
+        <button class="tab" data-category="todos" type="button" aria-pressed="false">Ver todo</button>
+      </div>
+
+      <!-- =================================================
+           6. BUSCADOR, FILTROS Y ORDEN POR PRECIO
+           Las opciones de color, correa y modelo se generan
+           con los datos de los productos en data.js.
+           ================================================= -->
+      <form class="filter-bar" id="filters" role="search" aria-label="Filtrar catálogo">
+        <div class="filter-field search-field">
+          <label for="search">BUSCAR UNA PIEZA</label>
+          <div class="search-input">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="search" type="search" placeholder="¿Qué estás buscando?" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="filter-field">
+          <label for="color">COLOR</label>
+          <select id="color"><option value="">Todos los colores</option></select>
+        </div>
+
+        <div class="filter-field">
+          <label for="strap">CORREA</label>
+          <select id="strap"><option value="">Todas las correas</option></select>
+        </div>
+
+        <div class="filter-field">
+          <label for="model">MODELO</label>
+          <select id="model"><option value="">Todos los modelos</option></select>
+        </div>
+
+        <div class="filter-field sort-field">
+          <label for="sort">ORDENAR POR</label>
+          <select id="sort">
+            <option value="featured">Selección original</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+          </select>
+        </div>
+      </form>
+
+      <!-- =================================================
+           7. RESULTADOS Y TARJETAS DE PRODUCTOS
+           ================================================= -->
+      <div class="catalog-meta">
+        <p id="result-count" role="status" aria-live="polite">9 piezas en la colección</p>
+        <button id="reset-filters" class="text-button" type="button" hidden>Limpiar filtros <span aria-hidden="true">×</span></button>
+
+        <!-- Se oculta con pricesAreExamples: false en STORE de data.js. -->
+        <span class="example-note" id="example-note">Precios y textos de ejemplo</span>
+      </div>
+
+      <!-- Contenedor de tarjetas: app.js las crea a partir de PRODUCTS.
+           Para añadir o cambiar productos, edita data.js. -->
+      <div class="product-grid" id="product-grid"></div>
+
+      <!-- Mensaje cuando ningún producto coincide con los filtros. -->
+      <div class="empty-state" id="empty-state" hidden>
+        <span aria-hidden="true">⌕</span>
+        <h3>No encontramos esa combinación.</h3>
+        <p>Prueba con otro color, modelo o tipo de correa.</p>
+        <button class="button button-outline" id="empty-reset" type="button">Ver todas las piezas</button>
+      </div>
+
+      <noscript><p class="noscript-message">Activa JavaScript para explorar el catálogo y sus filtros.</p></noscript>
+    </section>
+
+    <!-- ===================================================
+         8. PRESENTACIÓN DE CENTENARIOS
+         =================================================== -->
+    <section class="gold-section container" id="centenarios" aria-labelledby="gold-title">
+
+      <!-- app.js toma la imagen del primer producto cuya category
+           sea 'centenarios'. illustration: false oculta el rótulo. -->
+      <div class="gold-visual">
+        <span class="gold-corner">MÉXICO / 50 PESOS</span>
+        <img src="assets/centenario.svg" alt="Ilustración de referencia de una moneda de oro; no es una fotografía del producto" width="420" height="420" loading="lazy">
+        <span class="image-caption">VISTA ILUSTRATIVA</span>
+      </div>
+
+      <div class="gold-copy">
+        <p class="eyebrow">OTRA FORMA DE TRASCENDER</p>
+        <h2 id="gold-title">El tiempo pasa.<br><em>El oro permanece.</em></h2>
+        <p>Una pieza de la historia de México. Descubre nuestra sección de centenarios de oro.</p>
+
+        <div class="gold-facts">
+          <div><strong>50</strong><span>PESOS · VALOR NOMINAL</span></div>
+          <div><strong>37.5 <small>g</small></strong><span>CONTENIDO DE ORO PURO</span></div>
+        </div>
+
+        <!-- Selecciona los centenarios y lleva al catálogo. -->
+        <button id="view-coins" class="button button-outline" type="button">Explorar centenarios <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         9. NUESTRA ESENCIA / INFORMACIÓN DE LA TIENDA
+         Puedes editar estos títulos y párrafos aquí.
+         =================================================== -->
+    <section class="about-section container section-space" id="nosotros" aria-labelledby="about-title">
+      <p class="eyebrow">NUESTRA ESENCIA</p>
+
+      <div class="about-content">
+        <h2 id="about-title">No se trata solo<br>de llevar un reloj.<br><em>Se trata de hacerlo tuyo.</em></h2>
+        <div>
+          <p>Nos gustan las piezas con personalidad. Los contrastes, los detalles y esa forma de expresar tu estilo sin decir una palabra.</p>
+          <p>Nuestra colección reúne relojes Cartier con personalizaciones aftermarket. Cada pieza es una invitación a encontrar tu propia combinación.</p>
+          <a class="inline-link" href="#coleccion">Encuentra la tuya <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================
+         10. FRANJA DE CONTACTO
+         El teléfono se configura en STORE.phone de data.js.
+         =================================================== -->
+    <section class="contact-section">
+      <div class="container contact-inner">
+        <div>
+          <p class="eyebrow">CONVERSEMOS</p>
+          <h2>Tu próxima pieza<br>empieza con una pregunta.</h2>
+        </div>
+        <button class="button button-light contact-trigger" type="button">Hablemos de tu próxima pieza <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================
+       11. PIE DE PÁGINA: MARCA, ENLACES Y AVISOS
+       ===================================================== -->
+  <footer class="site-footer container">
+    <div class="footer-top">
+      <a class="brand" href="#inicio">
+        <span class="brand-name" data-store-name>Pendiente<span class="brand-dot">.</span></span>
+        <span class="brand-tagline" data-store-tagline>RELOJES & PIEZAS DE ORO</span>
+      </a>
+
+      <div class="footer-links">
+        <a href="#coleccion">Colección</a>
+        <a href="#centenarios">Centenarios</a>
+        <button type="button" class="text-button contact-trigger">Contacto ↗</button>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <!-- app.js actualiza el año y el nombre de la tienda. -->
+      <p>© <span id="year">2026</span> <span data-store-name-plain>Pendiente</span>. Todos los derechos reservados.</p>
+      <p>Tienda independiente. Sin afiliación oficial con Cartier.<br>Las personalizaciones aftermarket son posteriores a la fabricación original.</p>
+      <span>HECHO PARA TU TIEMPO.</span>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       12. VENTANA EMERGENTE: DETALLE DEL PRODUCTO
+       app.js rellena los campos al seleccionar una pieza.
+       Conserva los id y data-close para su funcionamiento.
+       ===================================================== -->
+  <dialog id="product-dialog" class="product-dialog" aria-labelledby="detail-title">
+    <button class="dialog-close icon-button" type="button" aria-label="Cerrar detalle" data-close="product-dialog">×</button>
+
+    <div class="detail-layout">
+      <!-- Foto de la pieza seleccionada. -->
+      <div class="detail-image-wrap">
+        <img id="detail-image" src="assets/watch-black.svg" alt="" width="500" height="650">
+        <span id="detail-image-caption" class="image-caption">VISTA ILUSTRATIVA</span>
+      </div>
+
+      <!-- Datos obtenidos del producto en data.js. -->
+      <div class="detail-copy">
+        <p class="eyebrow" id="detail-category">RELOJES / SANTOS</p>
+        <h2 id="detail-title"></h2>
+        <p class="detail-price" id="detail-price"></p>
+        <p class="detail-example" id="detail-example">Precio de ejemplo</p>
+        <p class="detail-description" id="detail-description"></p>
+
+        <!-- Características generadas por app.js. -->
+        <dl class="detail-specs" id="detail-specs"></dl>
+
+        <!-- Botón de WhatsApp o aviso si no hay teléfono configurado. -->
+        <div class="detail-contact" id="detail-contact"></div>
+
+        <p class="detail-footnote" id="detail-footnote">Personalización aftermarket. Consulta las características de esta pieza antes de comprar.</p>
+        <button class="text-button back-button" data-close="product-dialog" type="button">← Seguir explorando</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =====================================================
+       13. VENTANA EMERGENTE: CONTACTO GENERAL
+       La abren los botones con la clase contact-trigger.
+       ===================================================== -->
+  <dialog id="contact-dialog" class="contact-dialog" aria-labelledby="contact-title">
+    <button class="dialog-close icon-button" type="button" aria-label="Cerrar contacto" data-close="contact-dialog">×</button>
+    <p class="eyebrow">ATENCIÓN PERSONALIZADA</p>
+    <h2 id="contact-title">Hablemos de<br>tu próxima pieza.</h2>
+
+    <!-- app.js inserta el teléfono y el enlace de WhatsApp.
+         Si STORE.phone está vacío, muestra atención próximamente. -->
+    <div id="contact-content"></div>
+  </dialog>
+</body>
+</html>
