@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pendiente · Tienda estática
 
 Catálogo de relojes y centenarios hecho con HTML, CSS y JavaScript. No requiere npm, dependencias ni compilación. Los nombres, precios y descripciones son ejemplos para sustituir antes de usar el catálogo comercialmente.
@@ -61,3 +62,6 @@ Mantén `index.html`, los archivos CSS y JavaScript y la carpeta `assets/` con s
 Los filtros y el cambio de tema funcionan en el navegador. La elección de modo claro u oscuro se guarda localmente mediante `localStorage` cuando el navegador lo permite.
 
 Esta versión no procesa pagos, envíos ni pedidos, y no mantiene inventario real. El contacto para consultar una pieza abre WhatsApp cuando hayas configurado el teléfono. El catálogo presenta personalizaciones **aftermarket**: es una tienda independiente y no una tienda oficial de Cartier. Sustituye los datos de ejemplo y confirma las características reales de las piezas antes de publicar la oferta definitiva.
+=======
+# AbarrotesElAmigo
+>>>>>>> 91a98c11af4da28a1181d7ea13b2a406cabc8bb7
